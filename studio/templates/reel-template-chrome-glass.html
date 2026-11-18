@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Pop;src:url(/usr/share/fonts/truetype/google-fonts/Poppins-Bold.ttf);font-weight:700}
+@font-face{font-family:Pop;src:url(/usr/share/fonts/truetype/google-fonts/Poppins-Medium.ttf);font-weight:500}
+@font-face{font-family:Mont;src:url("/usr/share/fonts/truetype/google-fonts/ofl/montserrat/Montserrat[wght].ttf");font-weight:100 900}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#030713;font-family:Pop,sans-serif;color:#fff}
+#cam{position:absolute;inset:0;perspective:1400px}
+#world{position:absolute;inset:0;transform-style:preserve-3d}
+#bg{position:absolute;inset:-200px;background:radial-gradient(70% 45% at 50% 30%,#1b3a8a 0%,#0a1638 45%,#030713 80%)}
+.glow{position:absolute;border-radius:50%;filter:blur(140px)}
+#g1{width:900px;height:900px;background:#3058ff;opacity:.45}
+#g2{width:700px;height:700px;background:#e0a43c;opacity:.30}
+#floor{position:absolute;left:-400px;right:-400px;top:1250px;height:1400px;background-image:linear-gradient(rgba(120,160,255,.22) 2px,transparent 2px),linear-gradient(90deg,rgba(120,160,255,.22) 2px,transparent 2px);background-size:120px 120px;transform:rotateX(78deg);transform-origin:top;mask-image:linear-gradient(to bottom,#000 0%,transparent 70%);-webkit-mask-image:linear-gradient(to bottom,#000,transparent 70%)}
+#pts{position:absolute;inset:0}
+.pt{position:absolute;width:6px;height:6px;border-radius:50%;background:#ffe2a0;box-shadow:0 0 12px #ffd27a}
+#vig{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.65) 100%)}
+#grain{position:absolute;inset:0;opacity:.08;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence baseFrequency='.85' numOctaves='3' seed='4'/></filter><rect width='300' height='300' filter='url(%23n)'/></svg>")}
+#flash{position:absolute;inset:0;background:#fff;opacity:0}
+.scene{position:absolute;inset:0;opacity:0;transform-style:preserve-3d}
+.chrome{font-family:Mont;font-weight:900;text-transform:uppercase;letter-spacing:-2px;line-height:.92;text-align:center;
+ background:linear-gradient(180deg,#ffffff 0%,#dfe6f2 28%,#7d8aa3 48%,#f4f7fb 52%,#b5bfd1 70%,#ffffff 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
+ filter:drop-shadow(0 2px 0 #8a96ad) drop-shadow(0 4px 0 #6b7690) drop-shadow(0 6px 0 #4d566c) drop-shadow(0 10px 0 #2c3346) drop-shadow(0 30px 40px rgba(0,0,0,.6))}
+.goldtxt{background:linear-gradient(180deg,#fff4cf 0%,#f6cf6e 35%,#a8761f 50%,#ffe59a 54%,#d39a35 75%,#fff1c1 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
+ filter:drop-shadow(0 3px 0 #8a5f17) drop-shadow(0 6px 0 #6d4a10) drop-shadow(0 10px 0 #4a320a) drop-shadow(0 30px 40px rgba(0,0,0,.6))}
+.sweep{position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.75) 50%,transparent 60%);mix-blend-mode:overlay;pointer-events:none}
+.glass{border-radius:44px;background:linear-gradient(150deg,rgba(255,255,255,.18),rgba(255,255,255,.04));border:2px solid rgba(255,255,255,.28);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 40px 80px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.4)}
+.row{position:absolute;left:100px;width:880px;height:150px;display:flex;align-items:center;gap:34px;padding:0 40px;font-size:48px;font-weight:700}
+.x{flex:none;width:84px;height:84px;border-radius:24px;background:linear-gradient(160deg,#ff6b5e,#c4302b);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(230,70,60,.5)}
+.tile{position:absolute;width:420px;height:400px;padding:44px;display:flex;flex-direction:column;justify-content:flex-end}
+.tile .lbl{font-size:46px;font-weight:700;line-height:1.12}
+.tile svg{position:absolute;top:44px;left:44px}
+.tick{position:absolute;top:40px;right:40px;width:64px;height:64px;border-radius:50%;background:#2fd27a;display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px rgba(47,210,122,.7)}
+#cap{position:absolute;left:0;right:0;top:1440px;text-align:center;font-family:Mont;font-weight:900;font-size:64px;text-transform:uppercase;letter-spacing:1px}
+#cap .w{display:inline-block;margin:0 10px;-webkit-text-stroke:3px #000;paint-order:stroke fill;text-shadow:0 6px 0 #000,0 10px 30px rgba(0,0,0,.8)}
+#cap .on{color:#ffd65a}
+#brand{position:absolute;top:150px;width:100%;text-align:center;font-family:Mont;font-weight:800;font-size:32px;letter-spacing:14px;color:#e8c27a;opacity:.9}
+#bar{position:absolute;top:110px;left:90px;right:90px;height:6px;border-radius:6px;background:rgba(255,255,255,.12)}
+#barf{height:100%;width:0;border-radius:6px;background:linear-gradient(90deg,#e0a43c,#fff0b8);box-shadow:0 0 14px #e0a43c}
+</style></head>
+<body>
+<div id="cam"><div id="world">
+ <div id="bg"><div class="glow" id="g1"></div><div class="glow" id="g2"></div></div>
+ <div id="floor"></div>
+ <div id="pts"></div>
+
+ <!-- S1 hook -->
+ <div class="scene" id="s1">
+  <svg id="plane" width="1080" height="700" style="position:absolute;top:250px;left:0">
+   <path id="trail" d="M-100 560 C 250 520, 500 380, 1180 120" stroke="url(#tg)" stroke-width="6" fill="none" stroke-linecap="round" stroke-dasharray="1600" stroke-dashoffset="1600"/>
+   <defs><linearGradient id="tg"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#ffd27a"/></linearGradient></defs>
+   <g id="pl"><path d="M0 0 L60 -10 L90 -40 L102 -40 L88 -8 L130 -14 L142 -28 L150 -28 L144 -4 L150 20 L142 20 L130 8 L88 8 L102 40 L90 40 L60 10 Z" fill="#fff" transform="scale(1.1)"/></g>
+  </svg>
+  <div id="h1a" class="chrome" style="position:absolute;top:650px;width:100%;font-size:168px">USA VISA</div>
+  <div id="h1b" class="chrome" style="position:absolute;top:830px;width:100%;font-size:104px">APPOINTMENT</div>
+  <div id="h1c" class="goldtxt" style="position:absolute;top:980px;width:100%;text-align:center;font-family:Mont;font-weight:900;font-size:92px;text-transform:uppercase">NAHI MIL RAHA?</div>
+  <div class="sweep" id="sw1"></div>
+ </div>
+
+ <!-- S2 mistakes -->
+ <div class="scene" id="s2">
+  <div class="chrome" style="position:absolute;top:330px;width:100%;font-size:120px">3 GALTIYAN</div>
+  <div class="goldtxt" style="position:absolute;top:470px;width:100%;text-align:center;font-family:Mont;font-weight:900;font-size:72px">JO SAB KARTE HAIN</div>
+  <div class="row glass r2" style="top:680px"><div class="x"><svg width="44" height="44"><path d="M8 8L36 36M36 8L8 36" stroke="#fff" stroke-width="7" stroke-linecap="round"/></svg></div>DS-160 mein galat details</div>
+  <div class="row glass r2" style="top:870px"><div class="x"><svg width="44" height="44"><path d="M8 8L36 36M36 8L8 36" stroke="#fff" stroke-width="7" stroke-linecap="round"/></svg></div>Slots roz check na karna</div>
+  <div class="row glass r2" style="top:1060px"><div class="x"><svg width="44" height="44"><path d="M8 8L36 36M36 8L8 36" stroke="#fff" stroke-width="7" stroke-linecap="round"/></svg></div>Interview prep last minute</div>
+ </div>
+
+ <!-- S3 services -->
+ <div class="scene" id="s3">
+  <div class="chrome" style="position:absolute;top:300px;width:100%;font-size:120px">HUM KARENGE</div>
+  <div class="goldtxt" style="position:absolute;top:420px;width:100%;text-align:center;font-family:Mont;font-weight:900;font-size:96px">POORA PROCESS</div>
+  <div class="tile glass t3" style="left:90px;top:580px">
+   <svg width="110" height="110" fill="none" stroke="#ffd27a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path class="draw" d="M25 10h40l25 25v65H25z M65 10v25h25 M40 60h35 M40 78h35"/></svg>
+   <div class="tick"><svg width="34" height="34"><path d="M6 18l8 8 15-17" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"/></svg></div>
+   <div class="lbl">B1/B2 file<br>preparation</div></div>
+  <div class="tile glass t3" style="left:570px;top:580px">
+   <svg width="110" height="110" fill="none" stroke="#ffd27a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path class="draw" d="M15 20h80v75H15z M15 42h80 M35 10v20 M75 10v20 M35 62h12 M58 62h12 M35 78h12"/></svg>
+   <div class="tick"><svg width="34" height="34"><path d="M6 18l8 8 15-17" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"/></svg></div>
+   <div class="lbl">Slot tracking<br>help</div></div>
+  <div class="tile glass t3" style="left:90px;top:1010px">
+   <svg width="110" height="110" fill="none" stroke="#ffd27a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path class="draw" d="M30 15h50v80H30z M45 35h20 M45 52h20 M45 69h12 M70 85l15 15"/></svg>
+   <div class="tick"><svg width="34" height="34"><path d="M6 18l8 8 15-17" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"/></svg></div>
+   <div class="lbl">DS-160<br>support</div></div>
+  <div class="tile glass t3" style="left:570px;top:1010px">
+   <svg width="110" height="110" fill="none" stroke="#ffd27a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path class="draw" d="M55 12a16 16 0 0 1 16 16v26a16 16 0 0 1-32 0V28a16 16 0 0 1 16-16z M25 52a30 30 0 0 0 60 0 M55 82v18 M38 100h34"/></svg>
+   <div class="tick"><svg width="34" height="34"><path d="M6 18l8 8 15-17" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"/></svg></div>
+   <div class="lbl">Mock<br>interview</div></div>
+ </div>
+
+ <!-- S4 trust -->
+ <div class="scene" id="s4">
+  <svg id="scale" width="360" height="300" style="position:absolute;top:420px;left:360px" fill="none" stroke="#ffd27a" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+   <path class="draw" d="M180 20v240 M110 270h140 M60 70h240 M60 70l-45 100h90z M300 70l-45 100h90z M15 170a45 18 0 0 0 90 0 M255 170a45 18 0 0 0 90 0"/></svg>
+  <div class="chrome" style="position:absolute;top:780px;width:100%;font-size:100px">ADVOCATE-LED</div>
+  <div class="goldtxt" style="position:absolute;top:930px;width:100%;text-align:center;font-family:Mont;font-weight:900;font-size:104px">LEGAL TEAM</div>
+  <div class="glass" id="loc" style="position:absolute;top:1120px;left:190px;width:700px;height:120px;display:flex;align-items:center;justify-content:center;font-size:50px;font-weight:700">📍 Vikas Puri, New Delhi</div>
+  <div class="sweep" id="sw4"></div>
+ </div>
+
+ <!-- S5 CTA -->
+ <div class="scene" id="s5">
+  <div style="position:absolute;top:400px;width:100%;text-align:center;font-size:62px;font-weight:700;opacity:.9">Free USA checklist ke liye</div>
+  <div class="chrome" style="position:absolute;top:500px;width:100%;font-size:160px">COMMENT</div>
+  <div id="kw" class="glass" style="position:absolute;top:720px;left:240px;width:600px;height:300px;display:flex;align-items:center;justify-content:center;border:4px solid #ffd27a;box-shadow:0 0 80px rgba(255,200,90,.55),0 40px 80px rgba(0,0,0,.5)">
+   <div class="goldtxt" style="font-family:Mont;font-weight:900;font-size:220px">USA</div></div>
+  <div style="position:absolute;top:1090px;width:100%;text-align:center;font-size:52px;font-weight:500">ya WhatsApp karein</div>
+  <div class="chrome" style="position:absolute;top:1160px;width:100%;font-size:108px;letter-spacing:2px">97803 10024</div>
+  <div class="sweep" id="sw5"></div>
+ </div>
+</div></div>
+<div id="vig"></div><div id="grain"></div>
+<div id="bar"><div id="barf"></div></div>
+<div id="brand">AK CONSULTANCY</div>
+<div id="cap"></div>
+<div id="flash"></div>
+<script>
+const D=18;
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const eo=x=>1-Math.pow(1-cl(x),4);
+const ei=x=>cl(x)*cl(x)*cl(x);
+const bk=x=>{x=cl(x);const c=2.2;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const S=[["s1",0,3.4],["s2",3.4,7.6],["s3",7.6,11.8],["s4",11.8,14.6],["s5",14.6,18]];
+const CUTS=S.slice(1).map(s=>s[1]);
+const words=[[.2,"USA"],[.5,"APPOINTMENT"],[1.0,"KA"],[1.25,"WAIT"],[1.6,"KHATAM"],[1.95,"NAHI"],[2.25,"HO"],[2.45,"RAHA?"],
+[3.6,"PEHLE"],[3.9,"YE"],[4.1,"GALTIYAN"],[4.6,"BAND"],[4.9,"KARO"],
+[7.8,"FILE"],[8.1,"SE"],[8.3,"INTERVIEW"],[8.8,"TAK"],[9.2,"SAB"],[9.5,"SORTED"],
+[12.0,"SAHI"],[12.3,"LEGAL"],[12.7,"GUIDANCE"],
+[14.8,"COMMENT"],[15.3,"USA"],[15.8,"ABHI"]];
+// particles
+const P=document.getElementById('pts'),parts=[];
+for(let i=0;i<70;i++){const d=document.createElement('div');d.className='pt';P.appendChild(d);
+ const r=Math.sin(i*12.9898)*43758.5453;const f=r-Math.floor(r);const r2=Math.sin(i*78.233)*12345.678;const g=r2-Math.floor(r2);
+ parts.push({x:f*1080,y:g*1920,s:.3+((f*7)%1)*1.2,sp:20+g*60,ph:f*6.28});}
+function lineLen(el){return el.getTotalLength?el.getTotalLength():1000}
+document.querySelectorAll('.draw').forEach(p=>{const L=lineLen(p);p.style.strokeDasharray=L;p.dataset.L=L;p.style.strokeDashoffset=L});
+function stag(sel,t,start,gap,fn){[...document.querySelectorAll(sel)].forEach((e,i)=>fn(e,t-start-i*gap))}
+window.render=function(t){
+ document.getElementById('barf').style.width=cl(t/D)*100+'%';
+ // camera drift + punch-in on cuts
+ let punch=0;for(const c of CUTS){const d=t-c;if(d>=0&&d<.35)punch=Math.max(punch,(1-d/.35))}
+ const shake=t>0.95&&t<1.25?Math.sin(t*120)*10:0;
+ document.getElementById('world').style.transform=`translateZ(${t%4*12+punch*90}px) rotateY(${Math.sin(t*.35)*3}deg) rotateX(${Math.cos(t*.3)*2}deg) translateX(${shake}px)`;
+ document.getElementById('flash').style.opacity=Math.max(punch>0.75?(punch-.75)*2.2:0,0);
+ document.getElementById('g1').style.transform=`translate(${-250+Math.sin(t*.5)*220}px,${100+Math.cos(t*.4)*260}px)`;
+ document.getElementById('g2').style.transform=`translate(${520+Math.cos(t*.45)*220}px,${1150+Math.sin(t*.6)*220}px)`;
+ document.getElementById('floor').style.backgroundPosition=`0 ${t*90}px`;
+ parts.forEach((p,i)=>{const e=P.children[i];const y=(p.y-t*p.sp)%1920;e.style.transform=`translate(${p.x+Math.sin(t+p.ph)*30}px,${y<0?y+1920:y}px) scale(${p.s})`;e.style.opacity=.35+.45*Math.sin(t*2+p.ph)**2});
+ for(const [id,a,b] of S){const el=document.getElementById(id);const vis=t>=a&&t<b;el.style.opacity=vis?Math.min(eo((t-a)/.2),1-ei((t-(b-.18))/.18)):0;}
+ // S1
+ const pl=document.getElementById('pl'),tr=document.getElementById('trail');const pp=eo(t/1.6);
+ tr.style.strokeDashoffset=1600*(1-pp);
+ const pt=tr.getPointAtLength(1600*pp*0.98+1),pt2=tr.getPointAtLength(Math.min(1599,1600*pp*0.98+20));
+ const ang=Math.atan2(pt2.y-pt.y,pt2.x-pt.x)*180/Math.PI;pl.setAttribute('transform',`translate(${pt.x-80},${pt.y}) rotate(${ang})`);
+ const h=(id,st,from)=>{const e=document.getElementById(id);const p=t-st;e.style.transform=`translateY(${(1-bk(p/.55))*from}px) rotateX(${(1-eo(p/.55))*70}deg) scale(${.7+.3*bk(p/.55)})`;e.style.opacity=cl(p*4)};
+ h('h1a',.25,260);h('h1b',.6,220);h('h1c',1.0,200);
+ const sw=(id,st)=>{const e=document.getElementById(id);e.style.transform=`translateX(${-1200+cl((t-st)/.9)*2400}px)`};
+ sw('sw1',1.7);sw('sw4',13.2);sw('sw5',16.2);
+ // S2
+ stag('.r2',t,4.0,.65,(e,p)=>{e.style.transform=`translateX(${(1-bk(p/.5))*-1200}px) rotateY(${(1-eo(p/.5))*-35}deg)`;e.style.opacity=cl(p*3)});
+ // S3
+ stag('.t3',t,8.0,.35,(e,p)=>{e.style.transform=`translateZ(${(1-eo(p/.55))*-900}px) rotateX(${(1-eo(p/.55))*40}deg)`;e.style.opacity=cl(p*3);
+  e.querySelectorAll('.draw').forEach(d=>d.style.strokeDashoffset=d.dataset.L*(1-eo((p-.2)/.8)));
+  const tk=e.querySelector('.tick');tk.style.transform=`scale(${bk((p-.9)/.35)})`;});
+ // S4
+ const sc=document.querySelector('#scale .draw');sc.style.strokeDashoffset=sc.dataset.L*(1-eo((t-11.9)/1.2));
+ document.getElementById('scale').style.transform=`rotate(${Math.sin(t*2.4)*3}deg)`;
+ stag('#s4 .chrome, #s4 .goldtxt, #loc',t,12.2,.3,(e,p)=>{e.style.transform=`translateY(${(1-bk(p/.5))*160}px) scale(${.8+.2*bk(p/.5)})`;e.style.opacity=cl(p*3)});
+ // S5
+ stag('#s5 > div:not(.sweep)',t,14.7,.16,(e,p)=>{e.style.transform=`scale(${.4+.6*bk(p/.45)})`;e.style.opacity=cl(p*3)});
+ const kw=document.getElementById('kw');if(t>15.6)kw.style.transform=`scale(${1+Math.sin((t-15.6)*8)*.04}) rotate(${Math.sin((t-15.6)*4)*1.5}deg)`;
+ // kinetic captions: show group of up to 3 words around current, highlight active
+ const cap=document.getElementById('cap');const idx=words.findLastIndex(w=>w[0]<=t);
+ if(idx<0||t-words[idx][0]>1.2){cap.innerHTML='';}else{const g=Math.floor(idx/3)*3;const grp=words.slice(g,g+3).filter(w=>w[0]<=t+.0);
+  cap.innerHTML=grp.map((w,i)=>{const p=t-w[0];const on=g+i===idx;return `<span class="w ${on?'on':''}" style="transform:scale(${on?1+.25*(1-eo(p/.15)):1}) translateY(${(1-eo(p/.12))*30}px)">${w[1]}</span>`}).join('')}
+};
+render(0);
+</script></body></html>
