@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Pop;src:url(/usr/share/fonts/truetype/google-fonts/Poppins-Bold.ttf);font-weight:700}
+@font-face{font-family:Pop;src:url(/usr/share/fonts/truetype/google-fonts/Poppins-Regular.ttf);font-weight:400}
+@font-face{font-family:Pop;src:url(/usr/share/fonts/truetype/google-fonts/Poppins-Bold.ttf);font-weight:800}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#07122a;font-family:Pop,sans-serif;color:#fff}
+#bg{position:absolute;inset:0;background:radial-gradient(120% 80% at 50% 0%,#14285a 0%,#07122a 60%,#040a18 100%)}
+.blob{position:absolute;border-radius:50%;filter:blur(120px);opacity:.55}
+#b1{width:900px;height:900px;background:#2b4fd6}
+#b2{width:800px;height:800px;background:#d4a64a;opacity:.28}
+#grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:90px 90px}
+#grain{position:absolute;inset:0;opacity:.07;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='.9' numOctaves='2'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>")}
+.scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0}
+#bar{position:absolute;top:120px;left:90px;right:90px;height:8px;border-radius:8px;background:rgba(255,255,255,.12)}
+#barfill{height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,#d4a64a,#ffe3a1)}
+#brand{position:absolute;top:160px;width:100%;text-align:center;font-size:34px;letter-spacing:10px;color:#d4a64a;font-weight:700}
+.big{font-weight:800;line-height:1.02;text-align:center}
+.gold{color:#f2c86b}
+.word{display:inline-block;will-change:transform}
+.pill{display:inline-block;padding:14px 34px;border-radius:60px;background:#f2c86b;color:#0a1636;font-weight:800}
+.item{display:flex;align-items:center;gap:30px;width:880px;padding:34px 40px;margin:16px 0;border-radius:32px;background:rgba(255,255,255,.07);border:2px solid rgba(255,255,255,.12);font-size:46px}
+.num{flex:none;width:86px;height:86px;border-radius:50%;background:#e8504a;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:44px}
+.card{width:420px;height:330px;border-radius:40px;background:linear-gradient(160deg,rgba(255,255,255,.14),rgba(255,255,255,.04));border:2px solid rgba(242,200,107,.45);display:flex;flex-direction:column;justify-content:center;padding:40px;margin:14px}
+.card .ic{font-size:84px;line-height:1;margin-bottom:22px}
+.card .t{font-size:44px;font-weight:700;line-height:1.15}
+#cap{position:absolute;bottom:430px;width:100%;text-align:center}
+#cap span{display:inline-block;background:rgba(0,0,0,.55);padding:14px 30px;border-radius:18px;font-size:44px;font-weight:700}
+</style></head>
+<body>
+<div id="bg"><div class="blob" id="b1"></div><div class="blob" id="b2"></div></div>
+<div id="grid"></div>
+<div id="bar"><div id="barfill"></div></div>
+<div id="brand">AK CONSULTANCY</div>
+
+<div class="scene" id="s1">
+  <div class="big" style="font-size:150px"><span class="word w1">USA</span> <span class="word w1 gold">VISA</span></div>
+  <div class="big" style="font-size:118px"><span class="word w1">APPOINTMENT</span></div>
+  <div style="height:50px"></div>
+  <div class="word w1" style="font-size:64px;font-weight:700"><span class="pill">nahi mil raha?</span></div>
+</div>
+
+<div class="scene" id="s2">
+  <div class="big" style="font-size:86px;margin-bottom:50px">Ye <span class="gold">3 galtiyan</span><br>mat karna</div>
+  <div class="item i2"><div class="num">1</div><div>DS-160 mein galat details</div></div>
+  <div class="item i2"><div class="num">2</div><div>Slots roz check na karna</div></div>
+  <div class="item i2"><div class="num">3</div><div>Interview prep last minute</div></div>
+</div>
+
+<div class="scene" id="s3">
+  <div class="big" style="font-size:80px;margin-bottom:40px">Hum karte hain<br><span class="gold">poora kaam</span></div>
+  <div style="display:flex;flex-wrap:wrap;justify-content:center;width:1000px">
+    <div class="card c3"><div class="ic">📁</div><div class="t">B1/B2 file<br>preparation</div></div>
+    <div class="card c3"><div class="ic">📝</div><div class="t">DS-160<br>support</div></div>
+    <div class="card c3"><div class="ic">🎤</div><div class="t">Mock<br>interview</div></div>
+    <div class="card c3"><div class="ic">📅</div><div class="t">Slot tracking<br>help</div></div>
+  </div>
+</div>
+
+<div class="scene" id="s4">
+  <div class="word w4" style="font-size:180px">⚖️</div>
+  <div class="big word w4" style="font-size:96px;margin-top:30px">Advocate-led<br><span class="gold">legal team</span></div>
+  <div class="word w4" style="font-size:52px;margin-top:40px;opacity:.85">📍 Vikas Puri, New Delhi</div>
+</div>
+
+<div class="scene" id="s5">
+  <div class="word w5" style="font-size:60px;font-weight:700;opacity:.9">Free guide ke liye</div>
+  <div class="big word w5" style="font-size:150px;margin:20px 0">Comment</div>
+  <div class="word w5" id="kw"><span class="pill" style="font-size:150px;padding:20px 70px">USA</span></div>
+  <div class="word w5" style="font-size:52px;margin-top:70px">ya WhatsApp karein</div>
+  <div class="big word w5 gold" style="font-size:104px">97803 10024</div>
+</div>
+
+<div id="cap" style="display:none"><span id="captxt"></span></div>
+
+<script>
+const D=16;
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const eo=x=>1-Math.pow(1-cl(x),3);
+const back=x=>{x=cl(x);const c=1.70158;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const scenes=[["s1",0,3.2],["s2",3.2,7.2],["s3",7.2,10.8],["s4",10.8,13],["s5",13,16]];
+const caps=[[0,3.2,"Appointment ka wait lamba?"],[3.2,7.2,"Pehle ye galtiyan avoid karo"],[7.2,10.8,"File se interview tak, sab sorted"],[10.8,13,"Legal guidance, sahi tareeke se"],[13,16,"Comment USA 👇"]];
+function stag(els,t,start,gap,dur,fn){els.forEach((e,i)=>{const p=(t-start-i*gap)/dur;fn(e,p)})}
+window.render=function(t){
+  document.getElementById('barfill').style.width=(cl(t/D)*100)+'%';
+  const b1=document.getElementById('b1'),b2=document.getElementById('b2');
+  b1.style.transform=`translate(${-200+Math.sin(t*.6)*180}px,${200+Math.cos(t*.4)*220}px)`;
+  b2.style.transform=`translate(${450+Math.cos(t*.5)*200}px,${1100+Math.sin(t*.7)*200}px)`;
+  for(const [id,a,b] of scenes){
+    const el=document.getElementById(id);
+    const fin=eo((t-a)/.35), fout=eo((t-(b-.3))/.3);
+    const vis=t>=a&&t<b+.01;
+    el.style.opacity=vis?Math.min(fin,1-fout):0;
+    el.style.transform=`scale(${1+(1-fin)*.06-fout*.04}) translateY(${-fout*60}px)`;
+  }
+  stag([...document.querySelectorAll('.w1')],t,.1,.22,.5,(e,p)=>{e.style.transform=`translateY(${(1-back(p))*140}px) scale(${.6+.4*back(p)})`;e.style.opacity=cl(p*3)});
+  const sh=t>1.1&&t<1.5?Math.sin(t*90)*8:0; document.getElementById('s1').style.marginLeft=sh+'px';
+  stag([...document.querySelectorAll('.i2')],t,3.8,.55,.5,(e,p)=>{e.style.transform=`translateX(${(1-back(p))*-1100}px)`;e.style.opacity=cl(p*2)});
+  stag([...document.querySelectorAll('.c3')],t,7.7,.3,.5,(e,p)=>{e.style.transform=`scale(${back(p)}) rotate(${(1-eo(p))*-8}deg)`;e.style.opacity=cl(p*2)});
+  stag([...document.querySelectorAll('.w4')],t,11,.25,.5,(e,p)=>{e.style.transform=`translateY(${(1-back(p))*120}px)`;e.style.opacity=cl(p*2)});
+  stag([...document.querySelectorAll('.w5')],t,13.1,.18,.45,(e,p)=>{e.style.transform=`scale(${.5+.5*back(p)})`;e.style.opacity=cl(p*2)});
+  const kw=document.getElementById('kw'); if(t>14)kw.style.transform=`scale(${1+Math.sin((t-14)*7)*.05})`;
+  const c=caps.find(c=>t>=c[0]&&t<c[1]); const ct=document.getElementById('captxt');
+  ct.textContent=c?c[2]:''; ct.parentElement.style.opacity=c?Math.min(eo((t-c[0])/.25),1-eo((t-c[1]+.2)/.2)):0;
+};
+render(0);
+</script></body></html>
