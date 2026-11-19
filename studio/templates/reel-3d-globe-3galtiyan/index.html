@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AK Consultancy - USA appointment reel (sample, toolkit test)</title>
+<meta name="viewport" content="width=1080, height=1920">
+<style>
+:root { --navy:#07112b; --navy2:#0f2150; --gold:#f2c14e; --gold2:#ffdf8a; --ink:#ffffff; --red:#ff5a4f; }
+* { box-sizing:border-box; }
+html,body { margin:0; width:1080px; height:1920px; overflow:hidden; background:#000; }
+#main { position:absolute; inset:0; width:1080px; height:1920px; overflow:hidden; color:var(--ink);
+  font-family:"Poppins", sans-serif;
+  background: radial-gradient(ellipse 70% 45% at 50% 38%, #18306e 0%, #0b1a42 45%, #050b1e 100%); }
+.scene { position:absolute; inset:0; }
+#gl { position:absolute; left:0; top:0; width:1080px; height:1920px; display:block; }
+#halo { position:absolute; left:90px; top:250px; width:900px; height:900px; border-radius:50%;
+  background: radial-gradient(circle, rgba(242,193,78,.22) 0%, rgba(242,193,78,.06) 45%, rgba(0,0,0,0) 70%); }
+#grain { position:absolute; inset:0; width:100%; height:100%; opacity:.07; mix-blend-mode:overlay; pointer-events:none; }
+#vig { position:absolute; inset:0; background: radial-gradient(ellipse 80% 70% at 50% 45%, rgba(0,0,0,0) 55%, rgba(0,0,0,.55) 100%); pointer-events:none; }
+
+.line { position:absolute; left:0; width:1080px; text-align:center; white-space:pre; }
+.title { font-family:"Montserrat", sans-serif; font-weight:900; letter-spacing:-0.035em; }
+.goldtxt { color:var(--gold); text-shadow: 0 2px 0 #b8841f, 0 4px 0 #8a5f12, 0 10px 24px rgba(0,0,0,.55); }
+.white { color:#fff; text-shadow: 0 6px 22px rgba(0,0,0,.6); }
+
+/* scene 1 */
+#h1 { top:1265px; font-size:84px; line-height:100px; }
+#h2 { top:1372px; font-size:56px; line-height:70px; font-weight:700; font-family:"Poppins"; }
+#tag { position:absolute; left:50%; top:262px; transform:translateX(-50%); padding:14px 34px; border-radius:60px;
+  background:rgba(255,255,255,.08); border:2px solid rgba(242,193,78,.55); font-size:34px; font-weight:600; letter-spacing:.06em; color:var(--gold2);
+  white-space:nowrap; }
+
+/* scene 2 */
+#big3 { top:560px; font-size:420px; line-height:420px; }
+#s2a { top:1010px; font-size:110px; line-height:120px; }
+#s2b { top:1150px; font-size:54px; line-height:68px; font-weight:600; }
+
+/* progress */
+#prog { position:absolute; left:120px; top:300px; width:840px; }
+#progLbl { font-size:34px; font-weight:700; letter-spacing:.08em; color:var(--gold2); margin-bottom:18px; text-align:left; }
+#track { height:18px; border-radius:12px; background:rgba(255,255,255,.12); overflow:hidden; }
+#fill { height:100%; width:840px; border-radius:12px; background:linear-gradient(90deg,#f2c14e,#ffe9a8); transform-origin:0 50%; box-shadow:0 0 22px rgba(242,193,78,.7); }
+
+/* mistake cards */
+.card { position:absolute; left:90px; top:520px; width:900px; height:900px; border-radius:56px;
+  background:linear-gradient(160deg, rgba(255,255,255,.14), rgba(255,255,255,.04));
+  border:2px solid rgba(255,255,255,.22); box-shadow:0 40px 90px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.3);
+  }
+.num { position:absolute; left:0; top:70px; width:900px; text-align:center; font-family:"Montserrat"; font-weight:900; font-size:230px; line-height:230px; letter-spacing:-0.04em; }
+.xbadge { position:absolute; left:380px; top:350px; width:140px; height:140px; border-radius:50%; background:var(--red);
+  box-shadow:0 0 0 14px rgba(255,90,79,.18), 0 18px 40px rgba(0,0,0,.5); }
+.xbadge svg { position:absolute; left:30px; top:30px; width:80px; height:80px; }
+.ct { position:absolute; left:0; width:900px; text-align:center; white-space:pre; }
+.ct1 { top:540px; font-family:"Montserrat"; font-weight:900; font-size:76px; line-height:88px; letter-spacing:-0.03em; }
+.ct2 { top:640px; font-family:"Montserrat"; font-weight:900; font-size:76px; line-height:88px; letter-spacing:-0.03em; color:var(--gold); }
+.ct3 { top:770px; font-size:40px; line-height:52px; font-weight:500; color:rgba(255,255,255,.82); }
+
+/* CTA */
+#c1 { top:470px; font-size:72px; line-height:84px; font-weight:700; }
+#c2 { top:560px; font-size:330px; line-height:340px; }
+#c3 { top:930px; font-size:52px; line-height:66px; font-weight:600; }
+#wa { position:absolute; left:140px; top:1100px; width:800px; height:150px; border-radius:80px; background:#25d366;
+  box-shadow:0 22px 60px rgba(37,211,102,.45); color:#06240f; font-family:"Montserrat"; font-weight:900; font-size:66px; line-height:150px; text-align:center; letter-spacing:.01em; }
+#wa small { font-family:"Poppins"; font-weight:700; font-size:34px; letter-spacing:.04em; margin-right:18px; vertical-align:middle; }
+#brand { top:1320px; font-size:40px; line-height:52px; font-weight:700; color:var(--gold2); letter-spacing:.12em; }
+#addr { top:1376px; font-size:30px; line-height:40px; font-weight:500; color:rgba(255,255,255,.7); }
+#flash { position:absolute; inset:0; background:#fff; opacity:0; pointer-events:none; }
+</style>
+</head>
+<body>
+<div id="main">
+  <div id="world" class="scene">
+    <!-- scene 1: 3D globe hook -->
+    <div id="s1" class="scene">
+      <div id="halo"></div>
+      <canvas id="gl"></canvas>
+      <div id="tag">USA VISA APPOINTMENT</div>
+      <div id="h1" class="line title goldtxt">Appointment ka wait</div>
+      <div id="h2" class="line white">khatam hi nahi ho raha?</div>
+    </div>
+
+    <!-- scene 2: 3 galtiyan -->
+    <div id="s2" class="scene" style="opacity:0">
+      <div id="big3" class="line title goldtxt">3</div>
+      <div id="s2a" class="line title white">galtiyan</div>
+      <div id="s2b" class="line white">jo aapka slot miss karwa deti hain</div>
+    </div>
+
+    <!-- progress bar (scenes 3-5) -->
+    <div id="prog" style="visibility:hidden">
+      <div id="progLbl">GALTI <span style="position:relative;display:inline-block;width:26px"><span id="pn1" style="position:absolute;left:0;top:-38px">1</span><span id="pn2" style="position:absolute;left:0;top:-38px;visibility:hidden">2</span><span id="pn3" style="position:absolute;left:0;top:-38px;visibility:hidden">3</span></span> / 3</div>
+      <div id="track"><div id="fill"></div></div>
+    </div>
+
+    <div id="w1" class="scene" style="opacity:0"><div id="k1" class="card">
+      <div class="num goldtxt">01</div>
+      <div class="xbadge"><svg viewBox="0 0 80 80"><path id="x1" d="M18 18 L62 62 M62 18 L18 62" stroke="#fff" stroke-width="12" stroke-linecap="round" fill="none"/></svg></div>
+      <div class="ct ct1" id="k1a">DS-160 mein</div>
+      <div class="ct ct2" id="k1b">galat details</div>
+      <div class="ct ct3">Ek chhoti galti = interview mein dikkat</div>
+    </div></div>
+    <div id="w2" class="scene" style="opacity:0"><div id="k2" class="card">
+      <div class="num goldtxt">02</div>
+      <div class="xbadge"><svg viewBox="0 0 80 80"><path id="x2" d="M18 18 L62 62 M62 18 L18 62" stroke="#fff" stroke-width="12" stroke-linecap="round" fill="none"/></svg></div>
+      <div class="ct ct1" id="k2a">Documents</div>
+      <div class="ct ct2" id="k2b">last minute pe</div>
+      <div class="ct ct3">Slot khulta hai, file ready nahi hoti</div>
+    </div></div>
+    <div id="w3" class="scene" style="opacity:0"><div id="k3" class="card">
+      <div class="num goldtxt">03</div>
+      <div class="xbadge"><svg viewBox="0 0 80 80"><path id="x3" d="M18 18 L62 62 M62 18 L18 62" stroke="#fff" stroke-width="12" stroke-linecap="round" fill="none"/></svg></div>
+      <div class="ct ct1" id="k3a">Bina expert</div>
+      <div class="ct ct2" id="k3b">guidance ke apply</div>
+      <div class="ct ct3">Sahi time, sahi tareeka, sahi help</div>
+    </div></div>
+
+    <!-- scene 6: CTA -->
+    <div id="s6" class="scene" style="opacity:0">
+      <div id="c1" class="line white">Comment karo</div>
+      <div id="c2" class="line title goldtxt">USA</div>
+      <div id="c3" class="line white">hum poori process samjhayenge</div>
+      <div id="wa"><small>WHATSAPP</small>97803 10024</div>
+      <div id="brand" class="line">AK CONSULTANCY</div>
+      <div id="addr" class="line">Vikas Puri, New Delhi</div>
+    </div>
+  </div>
+  <div id="vig"></div>
+  <svg id="grain" viewBox="0 0 1080 1920" preserveAspectRatio="none" aria-hidden="true"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>
+  <div id="flash"></div>
+</div>
+
+<script src="./runtime/vendor/gsap.min.js"></script>
+<script src="./runtime/motion.js"></script>
+<script>
+const FPS = 30, DUR = 21;
+const M = Motion.film({ fps: FPS, duration: DUR, width: 1080, height: 1920, clock: 'smooth' });
+const GOLD = '#f2c14e';
+
+/* ---------- Scene 1: 3D dotted globe, gold route Delhi -> New York, plane flying it ---------- */
+const DEL = [28.6, 77.2], NYC = [40.7, -74.0], RG = 2.05;
+const v3 = (THREE, lat, lon, r) => { const a = lat * Math.PI / 180, b = lon * Math.PI / 180;
+  return new THREE.Vector3(r * Math.cos(a) * Math.sin(b), r * Math.sin(a), r * Math.cos(a) * Math.cos(b)); };
+let ARC = null, ARC_IDX = 0;
+
+const hero = M.hero3d('#gl', {
+  envMap: 'studio', toneMapping: 'neutral', exposure: 1.1,
+  key: { position: [-5, 6, 7], intensity: 2.0 }, rim: { position: [6, 2, -6], intensity: 3.5 },
+  camera: { fov: 30, position: [0, -1.2, 17], target: [0, -1.2, 0] },
+  objects: [],
+  build: (THREE) => {
+    const globe = new THREE.Group(), earth = new THREE.Group(); globe.add(earth);
+    // body
+    const body = new THREE.Mesh(new THREE.SphereGeometry(RG * 0.985, 96, 64),
+      new THREE.MeshPhysicalMaterial({ color: '#0c1f55', metalness: 0.35, roughness: 0.42, clearcoat: 0.9, clearcoatRoughness: 0.12 }));
+    earth.add(body);
+    // dotted shell (fibonacci sphere)
+    const N = 2600, pos = new Float32Array(N * 3), g = Math.PI * (3 - Math.sqrt(5));
+    for (let i = 0; i < N; i++) { const y = 1 - (i / (N - 1)) * 2, r = Math.sqrt(1 - y * y), th = g * i;
+      pos[i*3] = Math.cos(th) * r * RG; pos[i*3+1] = y * RG; pos[i*3+2] = Math.sin(th) * r * RG; }
+    const pg = new THREE.BufferGeometry(); pg.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    earth.add(new THREE.Points(pg, new THREE.PointsMaterial({ color: '#7fa2ff', size: 4.2, sizeAttenuation: false, transparent: true, opacity: 0.75 })));
+    // route arc
+    const a = v3(THREE, DEL[0], DEL[1], 1), b = v3(THREE, NYC[0], NYC[1], 1), pts = [];
+    const ang = a.angleTo(b);
+    for (let i = 0; i <= 120; i++) { const u = i / 120;
+      const p = a.clone().multiplyScalar(Math.sin((1 - u) * ang) / Math.sin(ang)).add(b.clone().multiplyScalar(Math.sin(u * ang) / Math.sin(ang)));
+      pts.push(p.normalize().multiplyScalar(RG * (1 + 0.32 * Math.sin(Math.PI * u)))); }
+    const curve = new THREE.CatmullRomCurve3(pts);
+    const tube = new THREE.TubeGeometry(curve, 240, 0.032, 10, false);
+    ARC_IDX = tube.index.count;
+    const arc = new THREE.Mesh(tube, new THREE.MeshStandardMaterial({ color: GOLD, emissive: '#c98a14', emissiveIntensity: 1.4, metalness: .6, roughness: .3 }));
+    earth.add(arc); ARC = { curve, arc };
+    // pins
+    const pinMat = new THREE.MeshStandardMaterial({ color: '#ffffff', emissive: GOLD, emissiveIntensity: 1.2 });
+    [a, b].forEach(p => { const m = new THREE.Mesh(new THREE.SphereGeometry(0.075, 24, 16), pinMat); m.position.copy(p.clone().multiplyScalar(RG * 1.005)); earth.add(m); });
+    // plane: fuselage + wings, nose on +z
+    const plane = new THREE.Group(), pm = new THREE.MeshPhysicalMaterial({ color: '#ffffff', metalness: .2, roughness: .25, clearcoat: 1 });
+    const fus = new THREE.Mesh(new THREE.CapsuleGeometry(0.06, 0.34, 8, 16), pm); fus.rotation.x = Math.PI / 2; plane.add(fus);
+    const wing = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.018, 0.12), pm); wing.position.z = 0.02; plane.add(wing);
+    const tail = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.014, 0.07), pm); tail.position.z = -0.17; plane.add(tail);
+    const fin = new THREE.Mesh(new THREE.BoxGeometry(0.014, 0.1, 0.08), new THREE.MeshStandardMaterial({ color: GOLD, metalness: .7, roughness: .3 })); fin.position.set(0, 0.06, -0.17); plane.add(fin);
+    plane.scale.setScalar(1.25);
+    earth.add(plane);
+    // face the middle of the route towards the camera, a little from above
+    const mid = curve.getPoint(0.5).normalize();
+    earth.quaternion.setFromUnitVectors(mid, new THREE.Vector3(0, 0.32, 1).normalize());
+    return { globe, earth, plane };
+  },
+  state: (t, o, { key, THREE }) => {
+    const u = key(t, [[0.5, 0], [3.4, 1, 'softInOut']]);                // flight progress
+    if (ARC) {
+      ARC.arc.geometry.setDrawRange(0, Math.floor(u * ARC_IDX / 6) * 6);
+      const p = ARC.curve.getPointAt(Math.min(u, 0.999)), tg = ARC.curve.getTangentAt(Math.min(u, 0.999));
+      o.plane.position.copy(p.clone().add(p.clone().normalize().multiplyScalar(0.05)));
+      const m = new THREE.Matrix4().lookAt(new THREE.Vector3(0,0,0), tg, p.clone().normalize());
+      o.plane.quaternion.setFromRotationMatrix(m);
+      o.plane.visible = t > 0.45;
+    }
+    return {
+      camera: { position: key(t, [[0, [0.8, -1.6, 22]], [1.2, [0, -1.2, 17], 'snapSettle'], [4, [-0.25, -1.05, 16.2], 'cruise']]), target: [0, -1.2, 0], fov: 30 },
+      objects: { globe: { rotation: [0.08, key(t, [[0, -0.55], [1.2, -0.12, 'softLand'], [4, 0.1, 'cruise']]), 0] } },
+    };
+  },
+});
+
+/* scene 1 text */
+M.enter('#tag', { at: 6, frames: 12, ease: 'softLand', from: { y: -40, opacity: 0, blur: 8 } });
+M.words('#h1', { at: 14, mech: 'rise', dist: 90, gaps: [5, 6, 7], smear: true, accent: { color: '#ffffff', frames: 18, word: -1 },
+  words: (i) => (i === 2 ? { dist: 150, scale: 1.3 } : null) });
+M.words('#h2', { at: 38, mech: 'rise', dist: 60, gaps: 4, smear: true, accent: { color: GOLD, frames: 22, word: 3 } });
+M.kf('#h1', 'letterSpacing', [[14, 0.04], [40, -0.035, 'softLand']], { fmt: v => v + 'em' });
+M.kf('#s1', 'scale', [[0, 1], [120, 1.04]]);
+M.mark(105, 'whoosh', 'plane lands');
+
+/* ---------- cuts + flash on every cut ---------- */
+const CUTS = [120, 225, 330, 435, 540];
+const flash = f => M.kf('#flash', 'opacity', [[f, 0], [f, 0.55], [f + 5, 0, 'softLand']]);
+CUTS.forEach(flash);
+const on = (sel, a, b) => M.kf(sel, 'opacity', b == null ? [[0, 0], [a, 0], [a, 1]] : [[0, 0], [a, 0], [a, 1], [b, 1], [b, 0]]);
+M.kf('#s1', 'opacity', [[0, 1], [120, 1], [120, 0]]);
+on('#s2', 120, 225); on('#w1', 225, 330); on('#w2', 330, 435); on('#w3', 435, 540); on('#s6', 540);
+CUTS.forEach(f => M.mark(f, 'cut', 'scene cut'));
+
+/* scene 2: 3 galtiyan */
+M.enter('#big3', { at: 121, frames: 10, ease: 'crashIn', from: { scale: 2.6, blur: 14 } });
+M.mark(121, 'impact', '3 slam');
+M.words('#s2a', { at: 132, mech: 'pop', dist: .4, gaps: 4 });
+M.words('#s2b', { at: 146, mech: 'rise', dist: 50, gaps: 3, smear: true, accent: { color: GOLD, frames: 20, word: [2, 3] } });
+M.kf('#s2', 'scale', [[121, 1.06], [225, 1, 'glide']]);
+
+/* scenes 3-5: mistake cards + progress */
+M.show('#prog', 225, 540);
+M.enter('#prog', { at: 225, frames: 12, ease: 'softLand', from: { y: -50 } });
+const fills = [[225, 0.02], [240, 0.333, 'snapSettle'], [330, 0.333], [345, 0.666, 'snapSettle'], [435, 0.666], [450, 1, 'snapSettle']];
+M.kf('#fill', 'scaleX', fills);
+['tick', 'tick', 'tick'].forEach((_, i) => M.mark([240, 345, 450][i], 'tick', 'progress ' + (i + 1)));
+[[225, '1'], [330, '2'], [435, '3']].forEach(([f, s]) => M.mark(f, 'label', s));
+const cards = [['#k1', 225, '#x1', '#k1a', '#k1b'], ['#k2', 330, '#x2', '#k2a', '#k2b'], ['#k3', 435, '#x3', '#k3a', '#k3b']];
+cards.forEach(([c, f, x, a, b], i) => {
+  M.enter(c, { at: f, frames: 14, ease: 'snapSettle', from: { y: 160, scale: .9, rotation: i % 2 ? 3 : -3 }, smear: { axis: 'y', px: 40, frames: 3 } });
+  M.enter(c + ' .num', { at: f + 4, frames: 10, ease: 'crashIn', from: { scale: 1.8, blur: 10 } });
+  M.enter(c + ' .xbadge', { at: f + 14, frames: 15, ease: 'popOver', from: { scale: 0 } });
+  M.mark(f + 14, 'pop', 'x badge ' + (i + 1));
+  const path = document.querySelector(x); const L = 150; path.style.strokeDasharray = L;
+  M.kf(x, 'strokeDashoffset', [[f + 18, L], [f + 30, 0, 'softLand']]);
+  M.words(a, { at: f + 26, mech: 'rise', dist: 70, gaps: 4, smear: true });
+  M.words(b, { at: f + 38, mech: 'pop', dist: .5, gaps: 5 });
+  M.enter(c + ' .ct3', { at: f + 56, frames: 12, ease: 'softLand', from: { y: 30, opacity: 0 } });
+  M.kf(c, 'y', [[f + 14, 0], [f + 104, -18]]);             // never freeze
+});
+// progress number swaps
+M.show('#pn1', 225, 330); M.show('#pn2', 330, 435); M.show('#pn3', 435);
+
+/* scene 6: CTA */
+M.words('#c1', { at: 542, mech: 'rise', dist: 50, gaps: 4 });
+M.enter('#c2', { at: 550, frames: 10, ease: 'crashIn', from: { scale: 2.4, blur: 16 } });
+M.mark(550, 'impact', 'USA slam');
+M.kf('#c2', 'scale', [[560, 1], [630, 1.06]]);
+M.words('#c3', { at: 566, mech: 'rise', dist: 40, gaps: 3, accent: { color: GOLD, frames: 20, word: [1, 2] } });
+M.enter('#wa', { at: 584, frames: 15, ease: 'popOver', from: { scale: 0.3, y: 40 } });
+M.mark(584, 'pop', 'whatsapp');
+M.kf('#wa', 'scale', [[600, 1], [606, 1.05, 'softLand'], [614, 1, 'softLand'], [618, 1], [624, 1.04, 'softLand'], [630, 1, 'softLand']]);
+M.enter('#brand', { at: 596, frames: 12, ease: 'softLand', from: { y: 30, opacity: 0 } });
+M.enter('#addr', { at: 602, frames: 12, ease: 'softLand', from: { y: 30, opacity: 0 } });
+M.mark(578, 'riser', 'into CTA');
+
+window.render = t => window.__seek(t);
+window.__ready = Motion.loaded();
+</script>
+</body>
+</html>
