@@ -26,7 +26,18 @@ Every run reads this file before making a reel, story or carousel. Add to it; ne
 3. Points, one per card, with progress
 4. CTA: "Comment karo USA" + WhatsApp 9780310024 + AK CONSULTANCY, Vikas Puri
 
+## Format B: realistic presenter / course style (user's reference, 19 Nov 2026) - PREFERRED for courses
+The user said graphics-only reels do not look realistic enough. Courses and most reels should follow this format:
+- A real-looking presenter talking to camera in Hinglish for most of the video: an AI avatar made in HeyGen from a team member's own photo and voice (only with that person's written consent), or HeyGen stock avatar. Medium close-up, plain warm background, natural hand gestures. Always mark it as AI-generated on Instagram.
+- Cut to b-roll every 3 to 5 s: screen recordings (website, forms, WhatsApp, app screens), phone mockups, thumbnail cards. Presenter stays visible in a picture-in-picture box or split screen during b-roll.
+- Captions: 2 to 4 words at a time, bold uppercase, white text on a dark navy / purple bar, the key word in yellow; centred around 70% down the frame.
+- Hook in the first 2 s (presenter + big logo or bold claim card); slow push-in on the presenter; zoom punch on key lines; a red cross on the wrong way, a tick on the right way.
+- End: presenter + "Comment KEYWORD for link" in big gold type + "Hum aapko DM karenge".
+- Sound: the presenter's voice is the hero; light music bed ducked under the voice; soft whoosh on cuts only (fewer effects than Format A).
+- Pipeline: script (ig-reel + humanizer) -> HeyGen avatar video of the presenter -> HyperFrames / motionmaxxing edit (b-roll, captions, PiP, zooms) -> studio-mix-master to -14 LUFS -> studio-frame-review.
+
 ## Feedback log (add one dated line per approval / rejection)
+- 2026-11-19: user said the graphics-only sample does not look realistic; wants Format B (presenter-led, like the trakin.ai reference) for future courses.
 - 2026-11-19: sample reel made for review (awaiting the user's feedback).
 
 ## Learned from references
