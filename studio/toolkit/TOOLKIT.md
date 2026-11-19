@@ -36,7 +36,34 @@ doesn't need a tool, skip it for that piece, but it stays in the base.
 | 3DViz Pro Max | 3dviz-pro-max | Real 3D: plane over globe, passport / calendar flip, 3D logo, Three.js or Blender scenes (223 recipes) | MIT, free |
 | Remotion | remotion-create, -best-practices, -captions, -render, -multimedia, -maps, -markup, -studio, -docs, -license | React-based video, animated maps (travel routes), data/caption-heavy reels | Free for companies with up to 3 employees; larger companies need a Remotion company licence (read remotion-license) |
 | claude-shorts | claude-shorts | Cut a long video (webinar, client call, YouTube) into vertical shorts with animated captions | MIT, free |
-| Our own engine | studio/render.py + studio/templates/ | Backup renderer, approved chrome-glass look | ours |
+| Our own engine | studio/render.py + studio/templates/ | Backup renderer, approved chrome-glass look; reel-3d-globe-3galtiyan = approved 3D sample | ours |
+
+## 2b. Sound tools (added 19 Nov 2026)
+| Tool | Skills to read | Best for | Licence |
+|---|---|---|---|
+| earshot | earshot-earshot, earshot-real-sound | Claude "hears" the mix: checks loudness, finds weak or missing sounds, puts a real sound on the exact frame; 201-sound bank made in code (no download needed) | MIT, free |
+| Motion Studio skills | studio-sfx-sync, studio-mix-master, studio-music-to-picture, studio-frame-review, studio-reference-study, studio-launch-film-studio, studio-stage-and-camera, studio-footage-cleanup | Sound on the exact frame, mixing to -14 LUFS for Instagram, cutting picture to music, frame-by-frame review, studying a reference reel | MIT, free |
+| Openverse API | (no skill, use the API) | 52 lakh+ free sounds (Wikimedia, Jamendo, Freesound) | free; each sound has its own licence: use only CC0 / CC-BY and credit CC-BY in the caption. Currently BLOCKED by the cloud network allowlist (api.openverse.org) until it is allowed in claude.ai Settings > Capabilities |
+| HyperFrames media-use | hyperframes-media-use | Music, SFX, voiceover, icons, colour grades | Apache-2.0 |
+
+## 2c. Design, text, research and code tools (added 19 Nov 2026)
+| Tool | Skills to read | Best for | Licence |
+|---|---|---|---|
+| UI UX Pro Max | uiux-ui-ux-pro-max, uiux-design, uiux-design-system, uiux-brand, uiux-banner-design, uiux-slides, uiux-ui-styling | Styles, colour palettes, font pairs, banners, brand kits, slides, carousels | MIT |
+| Impeccable | impeccable | Polished, non-generic visual design for pages, cards, carousels | Apache-2.0 |
+| Hallmark | hallmark | Turns "AI-looking" design into human-looking design | MIT |
+| Diagram Design | diagram-design | Branded infographics: process steps, timelines, comparisons (great for carousels: "USA visa process in 5 steps") | MIT |
+| Humanizer | humanizer | Removes signs of AI writing (use with ig-human on every caption, script, DM) | MIT |
+| Last 30 Days | last30days | What people said in the last 30 days on Reddit / X / YouTube about a topic (visa news, trends) for ig-viral and ig-plan | MIT |
+| Scrapling | scrapling | Reading public web pages for research (public info only; respect site rules; never collect personal data) | BSD-3 |
+| REA (reverse engineer anything) | reverse-engineer-anything | Breaking down how a competitor reel, page or funnel works | MIT |
+| Ponytail | ponytail, ponytail-review, ponytail-audit, ponytail-debt, ponytail-gain, ponytail-help | Keeps our own scripts (render.py, sound.py) short and clean | MIT |
+| yt-dlp + faster-whisper | (programs) | Download a reference reel the team owns or has rights to study, and transcribe it, for learn-style. faster-whisper needs `install.sh --full` | free |
+
+## 2d. Looked at but NOT added (and why)
+- Onyx: a full self-hosted AI chat app (needs its own server and database), not a skill. Not useful inside our cloud runs.
+- OmniRoute: routes Claude Code to other AI models to save tokens. Our scheduled runs already run on Claude, and routing our data through other model providers adds risk for client info.
+- Clipwing "Real SFX": its page points to earshot, which is added above.
 
 ## 3. Which tool for which piece
 - Faceless reel (default): ig-reel -> motionmaxxing (direction + easing) -> HyperFrames (build + render) -> sound effects -> QA.
@@ -45,7 +72,16 @@ doesn't need a tool, skip it for that piece, but it stays in the base.
 - Long video from the team: claude-shorts or ig-repurpose.
 - Copy the style of a reel we like: hyperframes-reverse-any-video / style-sampling (style only, never copy content, music or logos).
 - Carousel: ig-carousel (static JPEGs). Story: ig-story (+ HyperFrames for video stories).
+- Sound on every video: studio-sfx-sync places effects on the frame -> studio-mix-master to about -14 LUFS (Instagram level), true peak -1 dB -> earshot listens and flags missing / weak sounds before posting.
+- Carousel or infographic: ig-carousel + uiux-ui-ux-pro-max (style) + diagram-design (steps/timelines) + hallmark or impeccable check.
+- Every text: ig-human + humanizer.
+- Weekly research: ig-viral + last30days (+ scrapling for public pages) + reverse-engineer-anything on 1 competitor reel.
 - If any tool fails: studio/render.py. Never skip a post because of a tool.
+
+## 3b. Learn-style: our style memory (from the "teach Claude your editing style" reel)
+- Our approved style lives in `studio/styles/my-style.md` in this repo. EVERY run reads it before building anything.
+- To learn from a new reference reel: studio-reference-study (or hyperframes-reverse-any-video) on the file -> write what was learned (colours, fonts, pacing, cut length, caption style, sound pattern) into my-style.md under "Learned from references", with the date. Study style only; never copy someone else's content, music, logos or faces.
+- When the user approves or rejects a video, add one line to my-style.md (what they liked / disliked). This is how the system gets better every week.
 
 ## 4. Always-on quality rules
 - Sound: every cut / pop / tick / slam / CTA gets an auto-matched sound effect (synthesized or royalty-free only).
