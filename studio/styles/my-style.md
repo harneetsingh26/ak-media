@@ -26,6 +26,15 @@ Every run reads this file before making a reel, story or carousel. Add to it; ne
 3. Points, one per card, with progress
 4. CTA: "Comment karo USA" + WhatsApp 9780310024 + AK CONSULTANCY, Vikas Puri
 
+## RULE: REALISTIC IMAGES ONLY (user, 19 Nov 2026) - applies to every video, story and post
+The user said our videos look like cartoons. From now on:
+- Use photorealistic pictures and footage only: real-looking people (Indian consultants and families, office desk, laptop, passport in hand), Statue of Liberty, New York skyline, US flag waving, India Gate, aeroplane in clouds, passports, boarding passes, calendar on a desk. Natural light, shallow depth of field, like a real photo shoot.
+- No cartoon characters, no flat illustrations, no clip-art icons as the main visual, no "AI toy" 3D. Simple line icons are allowed only as small helpers in info rows.
+- Movement on photos: slow push-in / pan (Ken Burns), parallax between person and background, real flag wave, plane crossing the frame.
+- AK's real poster look (reference posts on @ak_consultancyindia): deep navy (#0d1b3d) + gold or red headline type, big bold condensed headlines ("US VISA", "APPOINTMENT"), white rounded info rows with icons, yellow or red pill buttons, WhatsApp bar at the bottom with +91 97803 10024, akconsultancyindia.com and info@akconsultancyindia.com, "Delhi | Punjab | Haryana". Use the real AK logo (AK with the plane and Lady Justice, "Legal Immigration Experts").
+- Sources for realistic images: HeyGen image generation (photoreal prompts, no text inside the picture), the team's own photos, or licensed stock. Never real people without permission, never a real client's documents or names.
+- Compliance stays: no "within X days", no success-rate numbers, no "slots paused / embassy" claims, no real appointment confirmations of clients.
+
 ## Format B: realistic presenter / course style (user's reference, 19 Nov 2026) - PREFERRED for courses
 The user said graphics-only reels do not look realistic enough. Courses and most reels should follow this format:
 - A real-looking presenter talking to camera in Hinglish for most of the video: an AI avatar made in HeyGen from a team member's own photo and voice (only with that person's written consent), or HeyGen stock avatar. Medium close-up, plain warm background, natural hand gestures. Always mark it as AI-generated on Instagram.
