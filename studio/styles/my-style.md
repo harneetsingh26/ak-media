@@ -37,6 +37,7 @@ The user said graphics-only reels do not look realistic enough. Courses and most
 - Pipeline: script (ig-reel + humanizer) -> HeyGen avatar video of the presenter -> HyperFrames / motionmaxxing edit (b-roll, captions, PiP, zooms) -> studio-mix-master to -14 LUFS -> studio-frame-review.
 
 ## Feedback log (add one dated line per approval / rejection)
+- 2026-11-19: presenter decision: use a HeyGen STOCK avatar (not a team member). Pick one Indian-looking, professional, friendly presenter + a Hindi/Hinglish voice, and keep the SAME avatar and voice in every video so it becomes AK's recognisable face.
 - 2026-11-19: user said the graphics-only sample does not look realistic; wants Format B (presenter-led, like the trakin.ai reference) for future courses.
 - 2026-11-19: sample reel made for review (awaiting the user's feedback).
 
