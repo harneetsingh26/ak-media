@@ -23,6 +23,7 @@ grab agricidaniel/claude-shorts    claude-shorts    # long video -> viral shorts
 grab remotion-dev/remotion         remotion         # React video engine (Remotion Licence - see TOOLKIT.md)
 # --- added 19 Nov 2026 (second batch of reels) ---
 grab Leonxlnx/earshot              earshot          # SOUND: hear/critique audio, 201 code-made SFX bank, real-sound on exact frame (MIT)
+grab wyzowl/sfx-kit                sfx-kit          # SOUND: 320 real sound effects made for AI agents, CC0 (free, no credit needed); read GUIDE.md + catalogue.md
 grab Meraj-08/motion-studio-skills motion-studio    # SOUND+FILM: sfx-sync, mix-master, music-to-picture, frame-review, reference-study (MIT)
 grab blader/humanizer              humanizer        # TEXT: remove AI-writing signs (MIT)
 grab Nutlope/hallmark              hallmark         # DESIGN: AI-slop design -> human design (MIT)

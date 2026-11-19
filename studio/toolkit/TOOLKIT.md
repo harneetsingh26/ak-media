@@ -42,6 +42,7 @@ doesn't need a tool, skip it for that piece, but it stays in the base.
 | Tool | Skills to read | Best for | Licence |
 |---|---|---|---|
 | earshot | earshot-earshot, earshot-real-sound | Claude "hears" the mix: checks loudness, finds weak or missing sounds, puts a real sound on the exact frame; 201-sound bank made in code (no download needed) | MIT, free |
+| SFX Kit (wyzowl) | read ~/ak-toolkit/sfx-kit/GUIDE.md and catalogue.md | 320 real recorded sound effects (whoosh, pop, click, logo sting...) with notes on when to use each; works offline, replaces Openverse until that is unblocked. Use these FIRST, synthesized sounds second | CC0, free, no credit needed |
 | Motion Studio skills | studio-sfx-sync, studio-mix-master, studio-music-to-picture, studio-frame-review, studio-reference-study, studio-launch-film-studio, studio-stage-and-camera, studio-footage-cleanup | Sound on the exact frame, mixing to -14 LUFS for Instagram, cutting picture to music, frame-by-frame review, studying a reference reel | MIT, free |
 | Openverse API | (no skill, use the API) | 52 lakh+ free sounds (Wikimedia, Jamendo, Freesound) | free; each sound has its own licence: use only CC0 / CC-BY and credit CC-BY in the caption. Currently BLOCKED by the cloud network allowlist (api.openverse.org) until it is allowed in claude.ai Settings > Capabilities |
 | HyperFrames media-use | hyperframes-media-use | Music, SFX, voiceover, icons, colour grades | Apache-2.0 |
@@ -63,7 +64,7 @@ doesn't need a tool, skip it for that piece, but it stays in the base.
 ## 2d. Looked at but NOT added (and why)
 - Onyx: a full self-hosted AI chat app (needs its own server and database), not a skill. Not useful inside our cloud runs.
 - OmniRoute: routes Claude Code to other AI models to save tokens. Our scheduled runs already run on Claude, and routing our data through other model providers adds risk for client info.
-- Clipwing "Real SFX": its page points to earshot, which is added above.
+- Clipwing / "RealSFX" (shown in 2 reels): no public download could be found. earshot real-sound + SFX Kit + sfx-sync do the same job (real sounds placed on the exact frame).
 
 ## 3. Which tool for which piece
 - Faceless reel (default): ig-reel -> motionmaxxing (direction + easing) -> HyperFrames (build + render) -> sound effects -> QA.
@@ -72,7 +73,7 @@ doesn't need a tool, skip it for that piece, but it stays in the base.
 - Long video from the team: claude-shorts or ig-repurpose.
 - Copy the style of a reel we like: hyperframes-reverse-any-video / style-sampling (style only, never copy content, music or logos).
 - Carousel: ig-carousel (static JPEGs). Story: ig-story (+ HyperFrames for video stories).
-- Sound on every video: studio-sfx-sync places effects on the frame -> studio-mix-master to about -14 LUFS (Instagram level), true peak -1 dB -> earshot listens and flags missing / weak sounds before posting.
+- Sound on every video: pick real sounds from SFX Kit (then earshot's bank, then synthesized) -> studio-sfx-sync places effects on the frame -> studio-mix-master to about -14 LUFS (Instagram level), true peak -1 dB -> earshot listens and flags missing / weak sounds before posting.
 - Carousel or infographic: ig-carousel + uiux-ui-ux-pro-max (style) + diagram-design (steps/timelines) + hallmark or impeccable check.
 - Every text: ig-human + humanizer.
 - Weekly research: ig-viral + last30days (+ scrapling for public pages) + reverse-engineer-anything on 1 competitor reel.
