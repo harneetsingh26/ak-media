@@ -1,0 +1,11 @@
+#!/bin/bash
+# Usage: make.sh <cfg.js> <workdir> <out.mp4> [stills]
+set -e
+K=$(cd "$(dirname "$0")" && pwd); CFG=$1; WD=$2; OUT=$3
+mkdir -p "$WD"; WD=$(cd "$WD" && pwd); cp "$K/index.html" "$WD/"; ln -sfn "$K/runtime" "$WD/runtime"; cp "$CFG" "$WD/cfg.js"
+if [ "$4" = "stills" ]; then python3 "$K/render_reel.py" "$WD/index.html" "$WD/qa" 0 stills "$5"; exit 0; fi
+python3 "$K/render_reel.py" "$WD/index.html" "$WD/silent.mp4" 0
+D=$(cat "$WD/silent.mp4.dur")
+python3 "$K/sfx_mix.py" "$WD/silent.mp4.events.json" "$D" "$WD/mix.wav"
+ffmpeg -v error -y -i "$WD/silent.mp4" -i "$WD/mix.wav" -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -shortest -movflags +faststart "$OUT"
+echo DONE "$OUT"

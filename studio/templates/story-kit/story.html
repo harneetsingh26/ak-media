@@ -1,0 +1,105 @@
+<!doctype html><html><head><meta charset="utf-8">
+<!-- AK story kit: data-driven 9 s faceless video story (1080x1920). Text lives in cfg.js. render(t) contract for studio/render.py -->
+<style>
+@font-face{font-family:M;src:url("file:///usr/share/fonts/truetype/google-fonts/ofl/montserrat/Montserrat[wght].ttf");font-weight:100 900}
+@font-face{font-family:P;src:url("file:///usr/share/fonts/truetype/google-fonts/Poppins-Bold.ttf");font-weight:700}
+@font-face{font-family:P;src:url("file:///usr/share/fonts/truetype/google-fonts/Poppins-Medium.ttf");font-weight:500}
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:1920px;overflow:hidden;background:#050b1e;font-family:P}
+#bg{position:absolute;inset:-80px;background:radial-gradient(ellipse at 50% 42%,#1c3a80 0%,#0d1b3d 45%,#050b1e 100%)}
+#grid{position:absolute;left:-200px;right:-200px;bottom:0;height:700px;background-image:linear-gradient(rgba(242,193,78,.18) 2px,transparent 2px),linear-gradient(90deg,rgba(242,193,78,.18) 2px,transparent 2px);background-size:90px 90px;transform-origin:50% 0;opacity:.5;-webkit-mask-image:linear-gradient(transparent,#000 60%)}
+#vig{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.65) 100%)}
+#grain{position:absolute;inset:0;opacity:.07;mix-blend-mode:overlay}
+#flash{position:absolute;inset:0;background:#fff;opacity:0}
+.s{position:absolute;left:60px;right:60px;text-align:center;opacity:0}
+.gold{font-family:M;font-weight:900;letter-spacing:-.035em;white-space:nowrap;background:linear-gradient(180deg,#fff3c4 0%,#ffdf8a 35%,#f2c14e 60%,#b8862a 100%);-webkit-background-clip:text;color:transparent;filter:drop-shadow(0 4px 0 #7a5410) drop-shadow(0 10px 18px rgba(0,0,0,.55))}
+.w{font-family:M;font-weight:800;color:#fff;letter-spacing:-.02em;text-shadow:0 6px 20px rgba(0,0,0,.5)}
+.word{display:inline-block;opacity:0}
+.row{position:absolute;left:90px;width:900px;height:150px;border-radius:34px;background:#fff;display:flex;align-items:center;padding:0 40px;gap:30px;box-shadow:0 18px 40px rgba(0,0,0,.45);opacity:0}
+.row .fl{font-size:66px;font-family:"Noto Color Emoji";flex:none}
+.row .tx{font-family:P;font-weight:700;font-size:44px;color:#0d1b3d;flex:1;text-align:left;white-space:nowrap}
+.row .ck{width:70px;height:70px;border-radius:50%;background:#25a35a;color:#fff;font:900 44px M;display:flex;align-items:center;justify-content:center;opacity:0;flex:none}
+#qcard{position:absolute;left:90px;width:900px;top:640px;border-radius:40px;background:#fff;color:#0d1b3d;padding:56px 50px;font:700 50px/68px P;text-align:center;box-shadow:0 24px 50px rgba(0,0,0,.5);opacity:0}
+.btn{position:absolute;top:1080px;width:420px;height:150px;border-radius:40px;font:900 66px/150px M;text-align:center;color:#fff;opacity:0}
+#bt{left:90px;background:#1fae57} #bf{left:570px;background:#e0372c}
+#num{font-family:M;font-weight:900;font-size:300px;line-height:1}
+#pill{position:absolute;left:140px;width:800px;top:1080px;height:150px;border-radius:80px;background:linear-gradient(180deg,#ffd768,#f2b62e);display:flex;align-items:center;justify-content:center;font:900 60px M;color:#0d1b3d;letter-spacing:-.02em;box-shadow:0 14px 0 #9a6b12,0 26px 40px rgba(0,0,0,.5);opacity:0;white-space:nowrap}
+#wa{position:absolute;left:90px;width:900px;top:1290px;height:120px;border-radius:30px;background:#25d366;display:flex;align-items:center;justify-content:center;gap:22px;font:700 54px P;color:#fff;opacity:0}
+#foot{position:absolute;left:0;right:0;top:1450px;text-align:center;font:500 34px P;color:#cfd8f0;opacity:0}
+#brand{position:absolute;left:0;right:0;top:290px;text-align:center;font:900 34px M;letter-spacing:.32em;color:#f2c14e;opacity:0}
+</style></head><body>
+<div id="bg"></div><div id="grid"></div>
+<canvas id="grain" width="540" height="960"></canvas>
+<div id="brand">AK CONSULTANCY</div>
+<div id="stage"></div>
+<div id="pill"></div>
+<div id="wa"><svg width="60" height="60" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.8.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>+91 97803 10024</div>
+<div id="foot">akconsultancyindia.com · Vikas Puri, New Delhi</div>
+<div id="vig"></div><div id="flash"></div>
+<script src="./cfg.js"></script>
+<script>
+const C=window.CFG, D=9.0; window.__DUR=D;
+const $=id=>document.getElementById(id), esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const wds=(s,acc)=>s.split(' ').map((w,i)=>`<span class="word"${(acc||[]).includes(i)?' style="color:#ffdf8a"':''}>${esc(w)}</span>`).join(' ');
+let h=`<div class="s" id="s1a" style="top:${C.t1Top||600}px"><div class="gold" style="font-size:${C.t1Size||150}px;line-height:.95">${C.t1.map(esc).join('<br>')}</div></div>
+<div class="s" id="s1b" style="top:${(C.t1Top||600)+C.t1.length*(C.t1Size||150)*0.95+70}px;opacity:1"><div class="w" style="font-size:66px">${wds(C.sub1,C.sub1Acc)}</div></div>
+<div class="s" id="s1c" style="top:${(C.t1Top||600)+C.t1.length*(C.t1Size||150)*0.95+170}px;opacity:1"><div style="font:500 48px P;color:#dfe6ff">${wds(C.sub2||'')}</div></div>
+<div class="s" id="s2a" style="top:400px"><div class="gold" style="font-size:${C.h2Size||130}px;line-height:1">${esc(C.h2)}</div><div class="w" style="font-size:52px;margin-top:20px;font-family:P;font-weight:700">${esc(C.h2sub||'')}</div></div>`;
+const K=C.mid.kind;
+if(K==='rows') C.mid.rows.forEach((r,i)=>{h+=`<div class="row" id="r${i}" style="top:${740+i*180}px"><div class="fl">${r[0]}</div><div class="tx">${esc(r[1])}</div><div class="ck">✓</div></div>`});
+if(K==='quiz') h+=`<div id="qcard">${esc(C.mid.q)}</div><div class="btn" id="bt">TRUE</div><div class="btn" id="bf">FALSE</div>`;
+if(K==='counter') h+=`<div class="s" id="cnt" style="top:720px"><div class="gold" id="num">0</div><div class="w" style="font-size:60px;margin-top:10px">${esc(C.mid.label)}</div><div style="font:500 40px P;color:#cfd8f0;margin-top:16px">${esc(C.mid.small)}</div></div>`;
+h+=`<div class="s" id="s3a" style="top:500px"><div class="w" style="font-size:72px">${esc(C.c1)}</div><div class="w" style="font-size:54px;margin-top:18px;font-family:P;font-weight:700;color:#dfe6ff">${esc(C.c1b||'')}</div></div>
+<div class="s" id="s3b" style="top:790px"><div class="gold" style="font-size:${C.c2Size||130}px;line-height:1">${esc(C.c2)}</div></div>`;
+$('stage').innerHTML=h; $('pill').textContent=C.pill;
+// fit: nothing wider than 940 px
+document.querySelectorAll('.gold,.w,.row .tx').forEach(el=>{let fs=parseFloat(getComputedStyle(el).fontSize);let g=0;while(el.scrollWidth>el.clientWidth+1&&fs>30&&g++<80){fs-=2;el.style.fontSize=fs+'px'}});
+// named easing curves (motionmaxxing measured shapes): softLand, snapBack, crashIn, slowDrift
+const clamp=x=>Math.max(0,Math.min(1,x));
+const softLand=x=>1-Math.pow(1-x,4), crashIn=x=>1-Math.pow(1-x,6), slowDrift=x=>0.5-0.5*Math.cos(Math.PI*x);
+const snapBack=x=>{const c=1.4;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const p=(t,a,d)=>clamp((t-a)/d);
+const g=$('grain').getContext('2d');let seed=7;
+function rnd(){seed=(seed*16807)%2147483647;return seed/2147483647}
+function grain(f){seed=1+(f%12)*977;const im=g.createImageData(540,960);for(let i=0;i<im.data.length;i+=4){const v=rnd()*255;im.data[i]=im.data[i+1]=im.data[i+2]=v;im.data[i+3]=255}g.putImageData(im,0,0)}
+function show(el,o,tf,blur){if(!el)return;el.style.opacity=o;el.style.transform=tf||'';el.style.filter=blur?`blur(${blur}px)`:''}
+let t=0;
+function words(sel,t0,gap){[...document.querySelectorAll(sel+' .word')].forEach((w,i)=>{const k=softLand(p(t,t0+i*gap,0.33));w.style.opacity=k;w.style.transform=`translateY(${(1-k)*50}px)`})}
+// sound events (frames @30) for sfx_mix.py
+const ev=[{frame:2,type:'impact'},{frame:87,type:'cut'},{frame:171,type:'cut'},{frame:186,type:'impact'},{frame:204,type:'pop'},{frame:214,type:'whoosh'},{frame:120,type:'riser'}];
+if(K==='rows') C.mid.rows.forEach((_,i)=>{ev.push({frame:Math.round((3.3+i*0.45)*30),type:'pop'});ev.push({frame:Math.round((3.58+i*0.45)*30),type:'click'})});
+if(K==='quiz'){ev.push({frame:105,type:'pop'},{frame:120,type:'pop'},{frame:132,type:'pop'},{frame:150,type:'click'})}
+if(K==='counter'){ev.push({frame:99,type:'tick'},{frame:115,type:'tick'},{frame:131,type:'tick'},{frame:144,type:'impact'})}
+window.__events=ev;
+function render(tt){t=tt;grain(Math.floor(t*15));
+ $('bg').style.transform=`scale(${1.05+0.04*slowDrift(clamp(t/D))}) rotate(${-0.6+1.2*slowDrift(clamp(t/D))}deg)`;
+ $('grid').style.transform=`perspective(700px) rotateX(62deg) translateY(${-(t*40)%90}px)`;
+ show($('brand'),softLand(p(t,0.1,0.5))*0.9);
+ let fl=0;[0,2.9,5.7].forEach(c=>{if(t>=c&&t<c+0.25)fl=Math.max(fl,0.7*(1-(t-c)/0.25))});$('flash').style.opacity=fl;
+ const s1=t<2.9,k1=crashIn(p(t,0.05,0.45));
+ show($('s1a'),s1?k1:0,`scale(${2.4-1.4*k1+0.03*slowDrift(p(t,0.5,2.4))})`,(1-k1)*18);
+ $('s1a').firstChild.style.letterSpacing=`${0.04-0.075*softLand(p(t,0.05,0.8))}em`;
+ $('s1a').firstChild.style.fontWeight=Math.round(400+500*softLand(p(t,0.05,0.6)));
+ $('s1b').style.opacity=s1?1:0;$('s1c').style.opacity=s1?1:0;words('#s1b',0.75,0.11);words('#s1c',1.5,0.09);
+ const s2=t>=2.9&&t<5.7,k2=crashIn(p(t,2.9,0.4));
+ show($('s2a'),s2?k2:0,`scale(${1.9-0.9*k2+0.02*slowDrift(p(t,3.3,2.4))})`,(1-k2)*14);
+ if(K==='rows') C.mid.rows.forEach((_,i)=>{const a=3.3+i*0.45,k=snapBack(p(t,a,0.4)),r=$('r'+i);
+   r.style.opacity=s2?clamp(p(t,a,0.12)):0;r.style.transform=`translateX(${(1-k)*-700}px) scale(${0.9+0.1*clamp(k)})`;
+   const c=r.querySelector('.ck'),kc=snapBack(p(t,a+0.28,0.3));c.style.opacity=clamp(p(t,a+0.28,0.08));c.style.transform=`scale(${kc})`});
+ if(K==='quiz'){const kq=snapBack(p(t,3.5,0.4));show($('qcard'),s2?clamp(p(t,3.5,0.1)):0,`scale(${0.8+0.2*kq}) rotate(${-1+slowDrift(p(t,3.5,2))}deg)`);
+   const kb=snapBack(p(t,4.0,0.35)),kf=snapBack(p(t,4.4,0.35));
+   const pick=C.mid.answer==='TRUE'?'bt':'bf',other=pick==='bt'?'bf':'bt',kr=p(t,5.0,0.25);
+   show($('bt'),s2?clamp(p(t,4.0,0.1))*(other==='bt'?1-0.6*kr:1):0,`scale(${kb*(pick==='bt'?1+0.12*Math.sin(Math.PI*kr):1)})`);
+   show($('bf'),s2?clamp(p(t,4.4,0.1))*(other==='bf'?1-0.6*kr:1):0,`scale(${kf*(pick==='bf'?1+0.12*Math.sin(Math.PI*kr):1)})`)}
+ if(K==='counter'){const kc=softLand(p(t,3.3,1.5));show($('cnt'),s2?clamp(p(t,3.2,0.15)):0,`scale(${0.95+0.05*kc})`);
+   $('num').textContent=Math.round(C.mid.n*kc);$('num').style.letterSpacing=`${0.05-0.085*kc}em`}
+ const s3=t>=5.7,k3=softLand(p(t,5.7,0.4));show($('s3a'),s3?k3:0,`translateY(${(1-k3)*60}px)`);
+ const k4=crashIn(p(t,6.2,0.4));show($('s3b'),s3?k4:0,`translateY(${8*Math.sin(Math.max(0,t-6.6)*3)}px) scale(${2.0-1.0*k4+0.04*Math.sin(Math.max(0,t-6.6)*3)})`,(1-k4)*16);
+ $('s3b').firstChild.style.letterSpacing=`${0.05-0.085*softLand(p(t,6.2,0.7))}em`;
+ const k5=snapBack(p(t,6.8,0.4));const fz=Math.max(0,t-7.2);show($('pill'),s3?clamp(p(t,6.8,0.1)):0,`translateY(${-10*Math.sin(fz*4)}px) scale(${k5*(1+0.04*Math.sin(fz*5))})`);
+ const k6=softLand(p(t,7.15,0.4));show($('wa'),s3?k6:0,`translateY(${(1-k6)*80}px) scale(${1+0.03*Math.sin(Math.max(0,t-7.6)*6)})`);
+ show($('foot'),s3?softLand(p(t,7.4,0.4)):0);
+}
+render(0);
+window.__seek=render; window.__ready=document.fonts.ready;
+</script></body></html>
