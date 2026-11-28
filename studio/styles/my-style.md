@@ -49,6 +49,7 @@ The user said graphics-only reels do not look realistic enough. Courses and most
 - 2026-11-19: presenter decision: use a HeyGen STOCK avatar (not a team member). Pick one Indian-looking, professional, friendly presenter + a Hindi/Hinglish voice, and keep the SAME avatar and voice in every video so it becomes AK's recognisable face.
 - 2026-11-19: user said the graphics-only sample does not look realistic; wants Format B (presenter-led, like the trakin.ai reference) for future courses.
 - 2026-11-19: sample reel made for review (awaiting the user's feedback).
+- 2026-11-28: user decision: EVERY reel and video story gets a Hinglish voiceover in the user's OWN voice, saved in their HeyGen account (not a stock voice). Voice is the hero; duck music and SFX under it; burn word-by-word captions synced to the voice. Needs HeyGen API access in the cloud task (api.heygen.com allowed + HEYGEN_API_KEY). Until then, ship without voice and tell the user.
 
 ## Learned from references
 - (none yet)
